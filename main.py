@@ -2,6 +2,8 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
-def f():
-    return 'Hello, World!'
+# foodname -> string
+# blacklist -> comma seperated list of strings e.g. "apple,banna,orange"
+@app.route('/<foodname>/<blacklist>')
+def f(foodname, blacklist):
+    return blacklist
