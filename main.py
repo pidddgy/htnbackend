@@ -29,9 +29,9 @@ def f(foodname, blacklist):
         recipe = hit["recipe"]
         ingred = recipe["ingredients"]
 
-        print(ingred)
+        # print(ingred)
         for x in ingred:
-            print(x["text"])
+            # print(x["text"])
             ingredients.append(x["text"])
 
     bad = blacklist.split(",")
@@ -55,4 +55,4 @@ def f(foodname, blacklist):
     return str(res)
 
 if(__name__ == "__main__"):
-    app.run(host='0.0.0.0', port = 4200, debug = True)
+    app.run(host='0.0.0.0', port = 42069, debug = True)
