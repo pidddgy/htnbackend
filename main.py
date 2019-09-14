@@ -38,6 +38,7 @@ def f(foodname, blacklist):
 
     cnt = {}
     test = []
+    res = dict()
     for i in bad:
         a = 0
         for j in ingredients:
@@ -46,7 +47,12 @@ def f(foodname, blacklist):
         cnt[i] = a
         print("count of "+i+" is "+str(a))
         test.append("count of "+i+" is "+str(a))
+
+        res[i] = a/100
             
 
     # print(contents)
-    return str(test)
+    return str(res)
+
+if(__name__ == "__main__"):
+    app.run(host='0.0.0.0', port = 4200, debug = True)
