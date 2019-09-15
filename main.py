@@ -11,11 +11,10 @@ APP_ID = "08c67c26"
 APP_KEY = "d22fafacab5449e1405a9937b7a0a7ba"
 allergies = []
 
-@app.route('/<foodname>/<blacklist>')
-def f(foodname, blacklist):
-    for x in blacklist:
-        x = x.lower()
-
+@app.route('/<foodname>')
+def f(foodname):
+    blacklist = allergies[-1]
+        
     foodname = foodname.replace(" ", "%20")
     # change amount of hits later maybe if need more precision
     url = "https://api.edamam.com/search?q="+foodname+"&app_id="+APP_ID+"&app_key=" + APP_KEY + "&to=100"
@@ -43,7 +42,7 @@ def f(foodname, blacklist):
     for i in bad:
         a = 0
         for j in ingredients:
-            a += j.lower().count(i)
+            a += j.lower().count(i.lower())
         
         cnt[i] = a
         print("count of "+i+" is "+str(a))
